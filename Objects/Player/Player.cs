@@ -36,16 +36,28 @@ public class Player : KinematicBody2D
 	public static bool canMove = true;
 	public static bool isAlive = true;
 	private static Vector2 bodyPos;
+	public static AnimationPlayer animationAlive;
+	public static AnimationPlayer animationGhost;
+
 
 	public override void _Ready()
 	{
 		timer = GetNode<Timer>("Timer");
 		alive = GetNode<Sprite>("Alive");
 		gost = GetNode<Sprite>("Gost");
+		animationAlive = GetNode<AnimationPlayer>("AnimationPlayerAlive");
+		animationGhost = GetNode<AnimationPlayer>("AnimationPlayerGhost");
+
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
+		if(isAlive == true)
+		{
+			animationGhost.Stop();
+			animationAlive.Play("FlyAlive");
+		}
+
 		if (Input.IsActionPressed("Die"))
 		{
 			Kill();
@@ -85,6 +97,8 @@ public class Player : KinematicBody2D
 			bodyPos.y += YCorrection;
 			bodyPos.x += XCorrection;
 			timer.Start(WaitTimeDeath);
+			animationAlive.Stop();
+			animationGhost.Play("FlyGhost");
 		}
 	}
 

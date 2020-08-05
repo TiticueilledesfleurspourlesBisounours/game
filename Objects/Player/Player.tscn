@@ -1,15 +1,54 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/Player/Player.cs" type="Script" id=1]
-[ext_resource path="res://Ressources/imgs/Alive.png" type="Texture" id=2]
-[ext_resource path="res://Ressources/imgs/Gost.png" type="Texture" id=3]
+[ext_resource path="res://Ressources/imgs/black bird.png" type="Texture" id=2]
+[ext_resource path="res://Ressources/imgs/ghostBlackAndWhite.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 76.7821, 150.019 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "FlyAlive"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Alive:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1.31951, 1, 0.757858 ),
+"update": 0,
+"values": [ Vector2( -8.90893, 16.0362 ), Vector2( -8.909, 4.462 ), Vector2( -8.909, 16.036 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Pose"
+
+[sub_resource type="Animation" id=4]
+resource_name = "FlyGhost"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gost:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1.27456, 1, 0.784584 ),
+"update": 0,
+"values": [ Vector2( 11.744, 42.3385 ), Vector2( 11.744, 29.678 ), Vector2( 11.744, 42.3385 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Pose"
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-YCorrection = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -6.28319
@@ -21,12 +60,21 @@ one_shot = true
 autostart = true
 
 [node name="Alive" type="Sprite" parent="."]
-scale = Vector2( 2.50887, 2.71639 )
+position = Vector2( -8.90893, 16.0362 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 
 [node name="Gost" type="Sprite" parent="."]
 visible = false
-position = Vector2( 1.05319, -1.31554 )
-scale = Vector2( 2.49123, 2.66507 )
+position = Vector2( 11.744, 42.3385 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
+
+[node name="AnimationPlayerAlive" type="AnimationPlayer" parent="."]
+anims/FlyAlive = SubResource( 2 )
+anims/Pose = SubResource( 3 )
+
+[node name="AnimationPlayerGhost" type="AnimationPlayer" parent="."]
+anims/FlyGhost = SubResource( 4 )
+anims/Pose = SubResource( 5 )
 [connection signal="timeout" from="Timer" to="." method="Timeout"]
