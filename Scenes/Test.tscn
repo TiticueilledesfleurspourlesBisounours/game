@@ -1,0 +1,209 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Test.cs" type="Script" id=1]
+[ext_resource path="res://Ressources/shaders/fog.shader" type="Shader" id=2]
+[ext_resource path="res://Objects/Blocks/ground_up.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Blocks/Ground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/House/House.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Ressources/imgs/back_black.png" type="Texture" id=7]
+[ext_resource path="res://Ressources/imgs/back1.png" type="Texture" id=8]
+[ext_resource path="res://Ressources/imgs/corde/corde_mid_flou.png" type="Texture" id=15]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/color = Vector3( 1, 1, 1 )
+shader_param/OCTAVES = 1
+
+[node name="Test" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="4nd" type="Node2D" parent="."]
+position = Vector2( 2979.56, -331 )
+scale = Vector2( 1.68519, 1.68519 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="4nd"]
+layer = -4
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="4nd/ParallaxBackground"]
+motion_mirroring = Vector2( 11520, 0 )
+
+[node name="back_black" type="Sprite" parent="4nd/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 3232, 352 )
+scale = Vector2( 6, 10 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="4nd/ParallaxBackground"]
+
+[node name="fog2" type="Sprite" parent="4nd/ParallaxBackground/ParallaxLayer2"]
+material = SubResource( 1 )
+position = Vector2( -20000, -81600 )
+scale = Vector2( 67.4, 151.2 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="3nd" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="3nd"]
+layer = -3
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="3nd/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 4423.68, 0 )
+
+[node name="back1" type="Sprite" parent="3nd/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 2624, -160 )
+scale = Vector2( 1.15185, 1.15185 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="3nd/ParallaxBackground"]
+
+[node name="fog2" type="Sprite" parent="3nd/ParallaxBackground/ParallaxLayer2"]
+material = SubResource( 1 )
+position = Vector2( -20000, -81600 )
+scale = Vector2( 67.4, 151.2 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="2nd" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="2nd"]
+layer = -2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="2nd/ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.6 )
+motion_mirroring = Vector2( 6470.4, 0 )
+
+[node name="back1" type="Sprite" parent="2nd/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 2656, -673 )
+scale = Vector2( 1.68519, 1.68519 )
+texture = ExtResource( 8 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="2nd/ParallaxBackground"]
+
+[node name="fog" type="Sprite" parent="2nd/ParallaxBackground/ParallaxLayer2"]
+material = SubResource( 1 )
+position = Vector2( -19989.6, -81634 )
+scale = Vector2( 67.4, 151.2 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="blocks" type="Node2D" parent="."]
+
+[node name="Ground" parent="blocks" instance=ExtResource( 4 )]
+position = Vector2( 960, 928 )
+
+[node name="Ground2" parent="blocks" instance=ExtResource( 4 )]
+position = Vector2( 8640, -448 )
+
+[node name="Ground3" parent="blocks" instance=ExtResource( 4 )]
+position = Vector2( 10560, -448 )
+
+[node name="Ground5" parent="blocks" instance=ExtResource( 4 )]
+position = Vector2( 12480, -448 )
+
+[node name="Ground4" parent="blocks" instance=ExtResource( 4 )]
+position = Vector2( 14400, -448 )
+
+[node name="ground_up" parent="blocks" instance=ExtResource( 3 )]
+position = Vector2( 4800, -416 )
+
+[node name="ground_up2" parent="blocks" instance=ExtResource( 3 )]
+position = Vector2( 1504, 64 )
+rotation = 2.85536
+
+[node name="ground_up3" parent="blocks" instance=ExtResource( 3 )]
+position = Vector2( 1472, 1088 )
+rotation = 0.780162
+
+[node name="back_black" type="Sprite" parent="blocks"]
+position = Vector2( 5605.75, 2270.63 )
+rotation = 0.0191986
+scale = Vector2( 8.2768, 2.35572 )
+texture = ExtResource( 7 )
+
+[node name="back_black2" type="Sprite" parent="blocks"]
+position = Vector2( 10976, 896 )
+scale = Vector2( 3.72371, 2.35572 )
+texture = ExtResource( 7 )
+
+[node name="back_black3" type="Sprite" parent="blocks"]
+position = Vector2( -2084.62, 272 )
+scale = Vector2( 0.995187, 5.77778 )
+texture = ExtResource( 7 )
+
+[node name="back_black4" type="Sprite" parent="blocks"]
+position = Vector2( 832, -2304 )
+rotation = -0.366519
+scale = Vector2( 2.94859, 2.20741 )
+texture = ExtResource( 7 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2001.19, 229.132 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( -4.63672, 0.443604 )
+rotation = 3.14159
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="House" parent="." instance=ExtResource( 5 )]
+position = Vector2( 11192.7, -498.61 )
+
+[node name="1nd" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="1nd"]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="1nd/ParallaxBackground"]
+motion_scale = Vector2( 1.5, 1.5 )
+
+[node name="cordes" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer"]
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer/cordes"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer/cordes"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="cordes2" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 8000.52, -2185.33 )
+rotation = 0.579449
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer/cordes2"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer/cordes2"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="cordes3" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 4857.11, 1392.07 )
+rotation = -0.563741
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer/cordes3"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer/cordes3"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )

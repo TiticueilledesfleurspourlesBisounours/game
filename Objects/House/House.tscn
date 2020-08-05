@@ -1,0 +1,308 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Objects/Levier/Levier.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Blocks/roof side left.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Blocks/roof side right.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Blocks/windows.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Blocks/wall broken.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Blocks/wall.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Blocks/door side.png" type="Texture" id=7]
+[ext_resource path="res://Objects/House/House.cs" type="Script" id=8]
+
+[node name="House" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="imgs" type="Node2D" parent="."]
+
+[node name="door side" type="Sprite" parent="imgs"]
+position = Vector2( -1739.42, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="door side2" type="Sprite" parent="imgs"]
+position = Vector2( -1739.42, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="door side3" type="Sprite" parent="imgs"]
+position = Vector2( -1739.42, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="door side4" type="Sprite" parent="imgs"]
+position = Vector2( -1739.42, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="roof side left" type="Sprite" parent="imgs"]
+position = Vector2( -1739.42, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="wall2" type="Sprite" parent="imgs"]
+position = Vector2( -1227.42, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall" type="Sprite" parent="imgs"]
+position = Vector2( -715.424, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall3" type="Sprite" parent="imgs"]
+position = Vector2( -203.424, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall4" type="Sprite" parent="imgs"]
+position = Vector2( 1332.58, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall5" type="Sprite" parent="imgs"]
+position = Vector2( 308.576, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall6" type="Sprite" parent="imgs"]
+position = Vector2( 820.576, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="roof side right" type="Sprite" parent="imgs"]
+position = Vector2( 1844.58, -2302.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="door side5" type="Sprite" parent="imgs"]
+position = Vector2( 2268.58, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="door side6" type="Sprite" parent="imgs"]
+position = Vector2( 2268.58, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="door side7" type="Sprite" parent="imgs"]
+position = Vector2( 2268.58, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="door side9" type="Sprite" parent="imgs"]
+position = Vector2( 2268.58, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="windows" type="Sprite" parent="imgs"]
+position = Vector2( -1651.42, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows4" type="Sprite" parent="imgs"]
+position = Vector2( -627.424, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows5" type="Sprite" parent="imgs"]
+position = Vector2( -115.424, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows8" type="Sprite" parent="imgs"]
+position = Vector2( 1756.58, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="wall broken" type="Sprite" parent="imgs"]
+position = Vector2( -627.424, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall broken2" type="Sprite" parent="imgs"]
+position = Vector2( -627.424, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall broken4" type="Sprite" parent="imgs"]
+position = Vector2( 908.576, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall broken3" type="Sprite" parent="imgs"]
+position = Vector2( -1651.42, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall broken5" type="Sprite" parent="imgs"]
+position = Vector2( -1139.42, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall broken7" type="Sprite" parent="imgs"]
+visible = false
+position = Vector2( 8192, -2304 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall broken6" type="Sprite" parent="imgs"]
+position = Vector2( 396.576, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall broken8" type="Sprite" parent="imgs"]
+position = Vector2( 1756.58, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="wall7" type="Sprite" parent="imgs"]
+position = Vector2( -1139.42, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall11" type="Sprite" parent="imgs"]
+position = Vector2( -1139.42, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall14" type="Sprite" parent="imgs"]
+position = Vector2( -1651.42, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall16" type="Sprite" parent="imgs"]
+position = Vector2( -1139.42, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall8" type="Sprite" parent="imgs"]
+position = Vector2( -115.424, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall12" type="Sprite" parent="imgs"]
+position = Vector2( 396.576, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall15" type="Sprite" parent="imgs"]
+position = Vector2( -115.424, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall19" type="Sprite" parent="imgs"]
+position = Vector2( -115.424, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall20" type="Sprite" parent="imgs"]
+position = Vector2( 396.576, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall21" type="Sprite" parent="imgs"]
+position = Vector2( 1292.58, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall18" type="Sprite" parent="imgs"]
+position = Vector2( 1260.58, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall17" type="Sprite" parent="imgs"]
+position = Vector2( 908.576, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall9" type="Sprite" parent="imgs"]
+position = Vector2( 908.576, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall10" type="Sprite" parent="imgs"]
+position = Vector2( 1420.58, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="wall13" type="Sprite" parent="imgs"]
+position = Vector2( 1844.58, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="windows2" type="Sprite" parent="imgs"]
+position = Vector2( 396.576, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows7" type="Sprite" parent="imgs"]
+position = Vector2( -627.424, -1278.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows9" type="Sprite" parent="imgs"]
+position = Vector2( -627.424, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows10" type="Sprite" parent="imgs"]
+position = Vector2( 852.576, -1790.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows6" type="Sprite" parent="imgs"]
+position = Vector2( 1420.58, -766.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="windows3" type="Sprite" parent="imgs"]
+position = Vector2( 1836.58, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="floors\'s house" type="StaticBody2D" parent="."]
+
+[node name="first floor" type="CollisionPolygon2D" parent="floors\'s house"]
+position = Vector2( -9843.42, 513.57 )
+polygon = PoolVector2Array( 8910.71, -1026.12, 11507.8, -1022.8, 11507.8, -930.042, 7940.37, -938.605, 7942.71, -1026.12 )
+one_way_collision = true
+
+[node name="Second floor" type="CollisionPolygon2D" parent="floors\'s house"]
+position = Vector2( -9843.97, 0.656982 )
+polygon = PoolVector2Array( 8910.71, -1026.12, 11854.5, -1023.5, 11855.5, -932.042, 8522.78, -937.531, 8519.95, -1026.63 )
+one_way_collision = true
+
+[node name="third floor (blocked for player)" type="CollisionPolygon2D" parent="floors\'s house"]
+position = Vector2( -9841.43, -508.27 )
+polygon = PoolVector2Array( 8910.71, -1026.12, 11454.3, -1025.33, 11451.6, -934.562, 7944.03, -938.041, 7942.71, -1026.12 )
+one_way_collision = true
+
+[node name="small door for ghost (blocked for player) mode" type="CollisionPolygon2D" parent="floors\'s house"]
+position = Vector2( -9843.43, -506.86 )
+polygon = PoolVector2Array( 11863.5, -1023.23, 11860.1, -938.302, 11437.2, -940.825, 11444, -1026.85 )
+
+[node name="left wall" type="StaticBody2D" parent="."]
+
+[node name="left wall collision shape" type="CollisionPolygon2D" parent="left wall"]
+position = Vector2( -9843.42, 513.57 )
+polygon = PoolVector2Array( 7849.81, -2561.08, 7935.59, -2561.08, 7933.29, -935.557, 7851.35, -935.557 )
+
+[node name="right wall" type="StaticBody2D" parent="."]
+
+[node name="right wall collision shape" type="CollisionPolygon2D" parent="right wall"]
+position = Vector2( -5837.63, 517.837 )
+polygon = PoolVector2Array( 7849.81, -2561.08, 7935.59, -2561.08, 7936.56, -1031.22, 7852.37, -1031.22 )
+
+[node name="door" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionPolygon2D" parent="door"]
+position = Vector2( -9843.42, 513.57 )
+polygon = PoolVector2Array( 11905.9, -1019.71, 12029.6, -1018.52, 12028, -515.944, 11910.3, -519.308 )
+
+[node name="img" type="Sprite" parent="door"]
+position = Vector2( 2356.58, -254.43 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Levier" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1648.49, -1788.86 )
