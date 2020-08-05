@@ -1,26 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Objects/Player/Player.cs" type="Script" id=1]
+[ext_resource path="res://Ressources/imgs/Alive.png" type="Texture" id=2]
+[ext_resource path="res://Ressources/imgs/Gost.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 76.7821, 150.019 )
 
-[sub_resource type="CubeMesh" id=2]
-
-[node name="Player" type="KinematicBody2D" groups=[
-"Player",
-]]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
+YCorrection = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -6.28319
 shape = SubResource( 1 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2( 75, 150 )
-mesh = SubResource( 2 )
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
 
-[node name="pass-through" type="Area2D" parent="."]
+[node name="Alive" type="Sprite" parent="."]
+scale = Vector2( 2.50887, 2.71639 )
+texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pass-through"]
-shape = SubResource( 1 )
+[node name="Gost" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.05319, -1.31554 )
+scale = Vector2( 2.49123, 2.66507 )
+texture = ExtResource( 3 )
+[connection signal="timeout" from="Timer" to="." method="Timeout"]

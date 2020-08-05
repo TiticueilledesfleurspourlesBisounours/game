@@ -35,17 +35,19 @@ public class Levier : Node2D
     }
     public void Entered(Node node)
     {
-        if (node.GetGroups().Contains("Player"))
-        {
+        //la fonction ne marche pas avec la condition
+        //if (node.GetGroups().Contains("Player"))
+        //{
             isPlayerIn = true;
-        }  
+        //}  
     }
     public void Exited(Node node)
     {
-        if (node.GetGroups().Contains("Player"))
-        {
-            isPlayerIn = false;
-        }
+        //la fonction ne marche pas avec la condition
+        //if (node.GetGroups().Contains("Player"))
+        //{
+        isPlayerIn = false;
+        //}
     }
 
 

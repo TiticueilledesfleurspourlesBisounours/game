@@ -272,12 +272,12 @@ position = Vector2( -9843.97, 0.656982 )
 polygon = PoolVector2Array( 8910.71, -1026.12, 11854.5, -1023.5, 11855.5, -932.042, 8522.78, -937.531, 8519.95, -1026.63 )
 one_way_collision = true
 
-[node name="third floor (blocked for player)" type="CollisionPolygon2D" parent="floors\'s house"]
+[node name="thirdFloor" type="CollisionPolygon2D" parent="floors\'s house"]
 position = Vector2( -9841.43, -508.27 )
 polygon = PoolVector2Array( 8910.71, -1026.12, 11454.3, -1025.33, 11451.6, -934.562, 7944.03, -938.041, 7942.71, -1026.12 )
 one_way_collision = true
 
-[node name="small door for ghost (blocked for player) mode" type="CollisionPolygon2D" parent="floors\'s house"]
+[node name="thirdFloorExit" type="CollisionPolygon2D" parent="floors\'s house"]
 position = Vector2( -9843.43, -506.86 )
 polygon = PoolVector2Array( 11863.5, -1023.23, 11860.1, -938.302, 11437.2, -940.825, 11444, -1026.85 )
 
