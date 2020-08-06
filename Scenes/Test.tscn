@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Test.cs" type="Script" id=1]
 [ext_resource path="res://Ressources/shaders/fog.shader" type="Shader" id=2]
@@ -8,7 +8,22 @@
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Ressources/imgs/back_black.png" type="Texture" id=7]
 [ext_resource path="res://Ressources/imgs/back1.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/DeathScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Ressources/imgs/corde/corde_mid_flou.png" type="Texture" id=15]
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Ressources/Fonts/Bellerose.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Ressources/Fonts/Bellerose.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = SubResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -17,6 +32,83 @@ shader_param/OCTAVES = 1
 
 [node name="Test" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="ActiveMe" type="Label" parent="."]
+margin_left = 9340.0
+margin_top = -2554.0
+margin_right = 9778.0
+margin_bottom = -2336.0
+custom_fonts/font = SubResource( 3 )
+text = "Active me !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Press E to interact" type="Label" parent="."]
+margin_left = 1231.36
+margin_top = 317.268
+margin_right = 1941.36
+margin_bottom = 535.268
+custom_fonts/font = SubResource( 3 )
+text = "Press \"E\" to interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToDie" type="Label" parent="."]
+margin_left = 3543.99
+margin_top = -434.789
+margin_right = 5002.99
+margin_bottom = -216.789
+custom_fonts/font = SubResource( 3 )
+text = "Press R to die (you can die only once)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToRespawn" type="Label" parent="."]
+margin_left = 3550.34
+margin_top = -304.622
+margin_right = 5009.34
+margin_bottom = -86.6224
+custom_fonts/font = SubResource( 3 )
+text = "Interact with your body to respawn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WhatAHappiness" type="Label" parent="."]
+margin_left = 7761.0
+margin_top = -939.0
+margin_right = 8979.0
+margin_bottom = -816.0
+custom_fonts/font = SubResource( 3 )
+text = "What a happiness ! The death is useful in this world ... "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="But" type="Label" parent="."]
+margin_left = 7761.0
+margin_top = -862.632
+margin_right = 8979.0
+margin_bottom = -739.632
+custom_fonts/font = SubResource( 3 )
+text = "But do not spend too much time in the afterlife ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoorLocked" type="Label" parent="."]
+margin_left = 13400.0
+margin_top = -1048.04
+margin_right = 13810.0
+margin_bottom = -847.043
+custom_fonts/font = SubResource( 5 )
+text = "Door locked."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="4nd" type="Node2D" parent="."]
 position = Vector2( 2979.56, -331 )
@@ -84,7 +176,7 @@ texture = ExtResource( 8 )
 
 [node name="fog" type="Sprite" parent="2nd/ParallaxBackground/ParallaxLayer2"]
 material = SubResource( 1 )
-position = Vector2( -19989.6, -81634 )
+position = Vector2( -19898.9, -81577.6 )
 scale = Vector2( 67.4, 151.2 )
 texture = ExtResource( 7 )
 centered = false
@@ -139,14 +231,14 @@ rotation = -0.366519
 scale = Vector2( 2.94859, 2.20741 )
 texture = ExtResource( 7 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 369.617, 648.679 )
+[node name="Player" parent="blocks" instance=ExtResource( 6 )]
+position = Vector2( 313.756, 730.576 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -4.63672, 0.443604 )
+[node name="Camera2D" type="Camera2D" parent="blocks/Player"]
+position = Vector2( -3.63477, 1.88135 )
 rotation = 3.14159
 current = true
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 3, 3 )
 
 [node name="House" parent="." instance=ExtResource( 5 )]
 position = Vector2( 11192.7, -498.61 )
@@ -207,3 +299,8 @@ position = Vector2( 2368, -1600 )
 rotation = -0.42586
 scale = Vector2( 6, 6 )
 texture = ExtResource( 15 )
+
+[node name="CameraForDeath" type="Camera2D" parent="."]
+position = Vector2( 5828.51, -5679.71 )
+
+[node name="DeathScreen" parent="CameraForDeath" instance=ExtResource( 9 )]

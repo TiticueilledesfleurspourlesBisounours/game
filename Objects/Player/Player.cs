@@ -6,10 +6,10 @@ public class Player : KinematicBody2D
 
 
 	[Export] public float Gravity = 980f;
-	[Export] public float Speed = 900;
-	[Export] public float JumpPowerAlive = 1200;
-	[Export] public float JumpPowerGost = 1200;
-	[Export] public float WaitTimeDeath = 25;
+	[Export] public float Speed = 700;
+	[Export] public float JumpPowerAlive = 1100;
+	[Export] public float JumpPowerGost = 1100;
+	[Export] public float WaitTimeDeath = 15;
 
 	[Export] public float XCorrection = 0;
 	[Export] public float YCorrection = 100;
@@ -38,6 +38,10 @@ public class Player : KinematicBody2D
 	private static Vector2 bodyPos;
 	public static AnimationPlayer animationAlive;
 	public static AnimationPlayer animationGhost;
+	public static AudioStreamPlayer backgroundMusic;
+	public static AudioStreamPlayer backgroundWind;
+	public static int numberOfDeath;
+	
 
 
 	public override void _Ready()
@@ -47,11 +51,30 @@ public class Player : KinematicBody2D
 		gost = GetNode<Sprite>("Gost");
 		animationAlive = GetNode<AnimationPlayer>("AnimationPlayerAlive");
 		animationGhost = GetNode<AnimationPlayer>("AnimationPlayerGhost");
-
+		backgroundMusic = GetNode<AudioStreamPlayer>("BackgroundMusic");
+		backgroundWind = GetNode<AudioStreamPlayer>("WindBackground");
+		backgroundMusic.Play();
+		backgroundWind.Play();
+		numberOfDeath = 2;
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
+		if (Levier.isLevierEnabled == true)
+		{
+			Test.doorLockedLabel.Text = "";
+		}
+
+		if (backgroundMusic.Playing == false)
+		{
+			backgroundMusic.Play();
+		}
+
+		if(backgroundWind.Playing == false)
+		{
+			backgroundWind.Play();
+		}
+
 		if(isAlive == true)
 		{
 			animationGhost.Stop();
@@ -73,7 +96,16 @@ public class Player : KinematicBody2D
 		}
 
 		if (isAlive == false)
+		{
 			alive.Position = ToLocal(bodyPos);
+		}
+		if (isAlive == false && timer.TimeLeft == 0)
+		{
+			Test.mainCamera.Current = false;
+			Test.deathCamera.Current = true;
+			Test.deathScreen.Visible = true;
+		}
+			
 
 		if (Input.IsActionPressed("Interact"))
 		{
@@ -90,15 +122,26 @@ public class Player : KinematicBody2D
 	{
 		if(isAlive)
 		{
-			bodyPos = GlobalPosition;
-			isAlive = false;
-			gost.Visible = true;
-			alive.RotationDegrees = 90;
-			bodyPos.y += YCorrection;
-			bodyPos.x += XCorrection;
-			timer.Start(WaitTimeDeath);
-			animationAlive.Stop();
-			animationGhost.Play("FlyGhost");
+			if (numberOfDeath > 0)
+			{
+				bodyPos = GlobalPosition;
+				isAlive = false;
+				gost.Visible = true;
+				alive.RotationDegrees = 90;
+				bodyPos.y += YCorrection;
+				bodyPos.x += XCorrection;
+				timer.Start(WaitTimeDeath);
+				animationAlive.Stop();
+				animationGhost.Play("FlyGhost");
+				numberOfDeath -= 1;
+			}
+			else
+			{
+				Test.mainCamera.Current = false;
+				Test.deathCamera.Current = true;
+				Test.deathScreen.Visible = true;
+			}
+			
 		}
 	}
 
@@ -116,16 +159,6 @@ public class Player : KinematicBody2D
 		gost.Visible = false;
 		alive.Position = new Vector2(0, 0);
 		alive.RotationDegrees = 0;
-	}
-
-	public void Timeout()
-	{
-		if(isAlive == false)
-		{
-			//Lost Game
-		}
-		GD.Print("Death");
-		Kill();
 	}
 
 	private void HorizontalMouvement(float delta)
