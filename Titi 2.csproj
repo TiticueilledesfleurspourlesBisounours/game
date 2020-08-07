@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Objects\Blocks\basPassage.cs" />
     <Compile Include="Objects\Blocks\Passage.cs" />
+    <Compile Include="Objects\FinalZonne\FinalZone.cs" />
     <Compile Include="Objects\House\House.cs" />
     <Compile Include="Objects\Player\Player.cs" />
     <Compile Include="Objects\Levier\Levier.cs" />

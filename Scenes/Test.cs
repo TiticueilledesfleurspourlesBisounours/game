@@ -14,6 +14,7 @@ public class Test : Node2D
     public static Label firstLabel;
     public static Label wrongWay;
     public static CollisionPolygon2D platform1;
+    public static KinematicBody2D player;
 
 
     public override void _Ready()
@@ -29,12 +30,14 @@ public class Test : Node2D
         firstLabel = GetNode<Label>("Press E to interact");
         wrongWay = GetNode<Label>("wrongway");
         platform1 = GetNode<CollisionPolygon2D>("StaticBody2D/CollisionPolygon2D");
+        player = GetNode<KinematicBody2D>("blocks/Player");
     }
 
 
 
  public override void _Process(float delta)
  {
+        //si le personnage est un fantome alors il peut sauter sur la plateforme sinon il ne peut pas
         if (Player.isAlive == false)
         {
             platform1.Disabled = false;

@@ -8,7 +8,6 @@ public class House : Node2D
     public static CollisionPolygon2D thirdFloor;
     public static CollisionPolygon2D thirdFloorExit;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         door = GetNode("door");
@@ -20,8 +19,10 @@ public class House : Node2D
 
     public override void _Process(float delta)
     {
+
         if (Player.IsAlive == false)
         {
+            //Le joueur peut sauter en partant du bas sur la plateforme tout en haut de la maison uniquement en mode fantome
             thirdFloor.OneWayCollision = true;
             thirdFloorExit.Disabled = true;
         }
@@ -38,7 +39,7 @@ public class House : Node2D
         Open_Door();
     }
 
-
+    //Enleve la collision shape de la porte et change sa texture
     public void Open_Door()
     {
         door.GetNode<CollisionPolygon2D>("Collision").Disabled = true;

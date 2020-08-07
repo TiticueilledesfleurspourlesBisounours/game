@@ -9,7 +9,7 @@ public class Player : KinematicBody2D
 	[Export] public float Speed = 700;
 	[Export] public float JumpPowerAlive = 1100;
 	[Export] public float JumpPowerGost = 1100;
-	[Export] public float WaitTimeDeath = 25;
+	[Export] public float WaitTimeDeath = 30;
 
 	[Export] public float XCorrection = 0;
 	[Export] public float YCorrection = 100;
@@ -60,6 +60,7 @@ public class Player : KinematicBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
+		//Change les textes vus au debut par le joueur apres activation du levier
 		if (Levier.isLevierEnabled == true)
 		{
 			Test.doorLockedLabel.Text = "";
@@ -102,11 +103,13 @@ public class Player : KinematicBody2D
 			JUMP();
 		}
 
+		//Enregistre la position ou le joueur est devenu fantome
 		if (isAlive == false)
 		{
 			alive.Position = ToLocal(bodyPos);
 			
 		}
+		//Ecran indiquant que le joueur a perdu
 		if (isAlive == false && timer.TimeLeft == 0)
 		{
 			Test.mainCamera.Current = false;
@@ -126,10 +129,12 @@ public class Player : KinematicBody2D
 		vel = MoveAndSlide(vel, new Vector2(0, -1));
 	}
 
+	//Tue le joueur pour etre en mode fantome
 	public void Kill()
 	{
 		if(isAlive)
 		{
+			//Si le nombre de mort est superieur a "numberOfDeath" alors le joueur perd
 			if (numberOfDeath > 0)
 			{
 				bodyPos = GlobalPosition;
@@ -161,7 +166,8 @@ public class Player : KinematicBody2D
 		return a;
 	}
 
-	public void Respawn()
+	//Permet au joueur de revenir dans le mode en vie
+	public static void Respawn()
 	{
 		isAlive = true;
 		gost.Visible = false;
@@ -169,6 +175,7 @@ public class Player : KinematicBody2D
 		alive.RotationDegrees = 0;
 	}
 
+	//Permet de tourner le personnage en fonction du sens de mouvement
 	private void HorizontalMouvement(float delta)
 	{
 		if (Input.IsActionPressed("ui_right"))

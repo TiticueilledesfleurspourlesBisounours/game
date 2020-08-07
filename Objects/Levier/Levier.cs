@@ -23,6 +23,7 @@ public class Levier : Node2D
     }
     public override void _Process(float delta)
     {
+        //Active le levier en changeant sa texture
         if (isPlayerIn && !isLevierEnabled)
         {
             if(Input.IsActionPressed("Interact"))
@@ -33,10 +34,12 @@ public class Levier : Node2D
             }
         }
     }
+    //Si cette fonction est activee, alors le joueur est en collision avec le levier
     public void Entered(Node node)
     {
             isPlayerIn = true;  
     }
+    //Si cette fonction est activee, alors le joueur n'est pas en collision avec le levier
     public void Exited(Node node)
     {
         isPlayerIn = false;
