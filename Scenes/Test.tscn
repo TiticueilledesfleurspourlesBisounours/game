@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Test.cs" type="Script" id=1]
 [ext_resource path="res://Ressources/shaders/fog.shader" type="Shader" id=2]
@@ -9,36 +9,72 @@
 [ext_resource path="res://Ressources/imgs/back_black.png" type="Texture" id=7]
 [ext_resource path="res://Ressources/imgs/back1.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/DeathScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Blocks/ground.png" type="Texture" id=10]
+[ext_resource path="res://Ressources/imgs/ground.png" type="Texture" id=11]
+[ext_resource path="res://Ressources/imgs/ground_up1.png" type="Texture" id=12]
 [ext_resource path="res://Ressources/imgs/corde/corde_mid_flou.png" type="Texture" id=15]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="DynamicFontData" id=8]
 font_path = "res://Ressources/Fonts/Bellerose.ttf"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=9]
+size = 70
+font_data = SubResource( 8 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Ressources/Fonts/Bellerose.ttf"
+
+[sub_resource type="DynamicFont" id=2]
 size = 60
-font_data = SubResource( 2 )
+font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=3]
 font_path = "res://Ressources/Fonts/Bellerose.ttf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 50
-font_data = SubResource( 4 )
+font_data = SubResource( 3 )
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 2 )
 shader_param/color = Vector3( 1, 1, 1 )
 shader_param/OCTAVES = 1
 
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Ressources/Fonts/Bellerose.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFontData" id=10]
+font_path = "res://Ressources/Fonts/Bellerose.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 60
+font_data = SubResource( 10 )
+
 [node name="Test" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="YesYouCan" type="Label" parent="."]
+margin_left = -8774.24
+margin_top = -1193.19
+margin_right = -8099.24
+margin_bottom = -996.195
+rect_rotation = -10.6
+custom_fonts/font = SubResource( 9 )
+text = "Yes you can ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ActiveMe" type="Label" parent="."]
 margin_left = 9340.0
 margin_top = -2554.0
 margin_right = 9778.0
 margin_bottom = -2336.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Active me !"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,19 +85,19 @@ margin_left = 1231.36
 margin_top = 317.268
 margin_right = 1941.36
 margin_bottom = 535.268
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Press \"E\" to interact"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HowToDie" type="Label" parent="."]
-margin_left = 3543.99
-margin_top = -434.789
-margin_right = 5002.99
-margin_bottom = -216.789
-custom_fonts/font = SubResource( 3 )
-text = "Press R to die (you can die only once)"
+margin_left = 3544.0
+margin_top = -435.0
+margin_right = 5003.0
+margin_bottom = -312.0
+custom_fonts/font = SubResource( 2 )
+text = "Press R to die (do not die too much)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,7 +107,7 @@ margin_left = 3550.34
 margin_top = -304.622
 margin_right = 5009.34
 margin_bottom = -86.6224
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Interact with your body to respawn"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -82,7 +118,7 @@ margin_left = 7761.0
 margin_top = -939.0
 margin_right = 8979.0
 margin_bottom = -816.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "What a happiness ! The death is useful in this world ... "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,7 +129,7 @@ margin_left = 7761.0
 margin_top = -862.632
 margin_right = 8979.0
 margin_bottom = -739.632
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "But do not spend too much time in the afterlife ..."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,14 +140,14 @@ margin_left = 13400.0
 margin_top = -1048.04
 margin_right = 13810.0
 margin_bottom = -847.043
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Door locked."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="4nd" type="Node2D" parent="."]
-position = Vector2( 2979.56, -331 )
+position = Vector2( 3523.84, -1097.03 )
 scale = Vector2( 1.68519, 1.68519 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="4nd"]
@@ -125,10 +161,19 @@ position = Vector2( 3232, 352 )
 scale = Vector2( 6, 10 )
 texture = ExtResource( 7 )
 
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="4nd/ParallaxBackground"]
+position = Vector2( -4339.56, -169.515 )
+motion_mirroring = Vector2( 11520, 0 )
+
+[node name="back_black" type="Sprite" parent="4nd/ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 3232, 352 )
+scale = Vector2( 6, 10 )
+texture = ExtResource( 7 )
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="4nd/ParallaxBackground"]
 
 [node name="fog2" type="Sprite" parent="4nd/ParallaxBackground/ParallaxLayer2"]
-material = SubResource( 1 )
+material = SubResource( 5 )
 position = Vector2( -20000, -81600 )
 scale = Vector2( 67.4, 151.2 )
 texture = ExtResource( 7 )
@@ -149,10 +194,51 @@ scale = Vector2( 1.15185, 1.15185 )
 texture = ExtResource( 8 )
 flip_h = true
 
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="3nd/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 4423.68, 0 )
+
+[node name="back1" type="Sprite" parent="3nd/ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 2624, -160 )
+scale = Vector2( 1.15185, 1.15185 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="3nd/ParallaxBackground"]
+position = Vector2( -11516.9, -1829.79 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 4423.68, 0 )
+
+[node name="back1" type="Sprite" parent="3nd/ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 2624, -160 )
+scale = Vector2( 1.15185, 1.15185 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="3nd/ParallaxBackground"]
+position = Vector2( -20773.5, -2045.06 )
+motion_scale = Vector2( 0.2, 0.2 )
+motion_mirroring = Vector2( 4423.68, 0 )
+
+[node name="back1" type="Sprite" parent="3nd/ParallaxBackground/ParallaxLayer6"]
+position = Vector2( 2624, -160 )
+scale = Vector2( 1.15185, 1.15185 )
+texture = ExtResource( 8 )
+flip_h = true
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="3nd/ParallaxBackground"]
 
 [node name="fog2" type="Sprite" parent="3nd/ParallaxBackground/ParallaxLayer2"]
-material = SubResource( 1 )
+material = SubResource( 5 )
+position = Vector2( -20000, -81600 )
+scale = Vector2( 67.4, 151.2 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="3nd/ParallaxBackground"]
+
+[node name="fog2" type="Sprite" parent="3nd/ParallaxBackground/ParallaxLayer3"]
+material = SubResource( 5 )
 position = Vector2( -20000, -81600 )
 scale = Vector2( 67.4, 151.2 )
 texture = ExtResource( 7 )
@@ -172,11 +258,40 @@ position = Vector2( 2656, -673 )
 scale = Vector2( 1.68519, 1.68519 )
 texture = ExtResource( 8 )
 
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="2nd/ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.6 )
+motion_mirroring = Vector2( 6470.4, 0 )
+
+[node name="back1" type="Sprite" parent="2nd/ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 2656, -673 )
+scale = Vector2( 1.68519, 1.68519 )
+texture = ExtResource( 8 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="2nd/ParallaxBackground"]
+position = Vector2( -11657.9, 0 )
+motion_scale = Vector2( 0.4, 0.6 )
+motion_mirroring = Vector2( 6470.4, 0 )
+
+[node name="back1" type="Sprite" parent="2nd/ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 2656, -673 )
+scale = Vector2( 1.68519, 1.68519 )
+texture = ExtResource( 8 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="2nd/ParallaxBackground"]
+position = Vector2( -20829, 0 )
+motion_scale = Vector2( 0.4, 0.6 )
+motion_mirroring = Vector2( 6470.4, 0 )
+
+[node name="back1" type="Sprite" parent="2nd/ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 2656, -673 )
+scale = Vector2( 1.68519, 1.68519 )
+texture = ExtResource( 8 )
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="2nd/ParallaxBackground"]
 
 [node name="fog" type="Sprite" parent="2nd/ParallaxBackground/ParallaxLayer2"]
-material = SubResource( 1 )
-position = Vector2( -19898.9, -81577.6 )
+material = SubResource( 5 )
+position = Vector2( -19890.9, -81552.2 )
 scale = Vector2( 67.4, 151.2 )
 texture = ExtResource( 7 )
 centered = false
@@ -187,7 +302,8 @@ centered = false
 position = Vector2( 960, 928 )
 
 [node name="Ground2" parent="blocks" instance=ExtResource( 4 )]
-position = Vector2( 8640, -448 )
+position = Vector2( 8711.76, -451.415 )
+scale = Vector2( 1.1, 1 )
 
 [node name="Ground3" parent="blocks" instance=ExtResource( 4 )]
 position = Vector2( 10560, -448 )
@@ -196,33 +312,35 @@ position = Vector2( 10560, -448 )
 position = Vector2( 12480, -448 )
 
 [node name="Ground4" parent="blocks" instance=ExtResource( 4 )]
-position = Vector2( 14400, -448 )
+position = Vector2( 14399.4, -448.148 )
 
-[node name="ground_up" parent="blocks" instance=ExtResource( 3 )]
-position = Vector2( 4800, -416 )
+[node name="monteColline" type="StaticBody2D" parent="blocks"]
+position = Vector2( 4796.9, -413.214 )
 
-[node name="ground_up2" parent="blocks" instance=ExtResource( 3 )]
-position = Vector2( 1504, 64 )
-rotation = 2.85536
+[node name="Sprite" type="Sprite" parent="blocks/monteColline"]
+texture = ExtResource( 12 )
 
-[node name="ground_up3" parent="blocks" instance=ExtResource( 3 )]
-position = Vector2( 1472, 1088 )
-rotation = 0.780162
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="blocks/monteColline"]
+polygon = PoolVector2Array( 2879.13, -105.927, 2787.06, -107.515, 2669.6, -97.9903, 2542.6, -94.8155, 2420.37, -94.8155, 2277.51, -97.9903, 2169.56, -97.9903, 2090.19, -93.2281, 1967.96, -86.8784, 1867.96, -50.3682, 1785.41, -26.5572, 1717.16, 0.428589, 1606.33, 27.8172, 1430.46, 85.0282, 1290.61, 121.05, 1178.31, 146.477, 1091.43, 197.331, 968.535, 282.088, 837.161, 390.154, 648.577, 515.17, 351.927, 625.354, 104.013, 627.473, -145.535, 627.289, -546.19, 642.408, -944.325, 692.805, -1129.76, 755.451, -1365.21, 926.994, -1718.39, 1078.36, -2111.93, 1148.99, -2545.83, 1206.17, -2757.73, 1253.26, -2871.56, 1592.17, 2817.53, 1510.97 )
 
 [node name="back_black" type="Sprite" parent="blocks"]
-position = Vector2( 5605.75, 2270.63 )
-rotation = 0.0191986
+position = Vector2( 6493.75, 2179.63 )
 scale = Vector2( 8.2768, 2.35572 )
 texture = ExtResource( 7 )
+
+[node name="back_black5" type="Sprite" parent="blocks"]
+position = Vector2( -18937.9, 2166.2 )
+scale = Vector2( 18.661, 2.356 )
+texture = ExtResource( 7 )
+
+[node name="groundtoghost2" type="StaticBody2D" parent="blocks/back_black5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="blocks/back_black5/groundtoghost2"]
+polygon = PoolVector2Array( 837.791, -541.053, 973.487, -544.228, 1014.95, -551.747, 1185.9, -517.283, 1185.55, -458.435, -568.146, -374.619, -567.897, -539.211 )
 
 [node name="back_black2" type="Sprite" parent="blocks"]
 position = Vector2( 10976, 896 )
 scale = Vector2( 3.72371, 2.35572 )
-texture = ExtResource( 7 )
-
-[node name="back_black3" type="Sprite" parent="blocks"]
-position = Vector2( -2084.62, 272 )
-scale = Vector2( 0.995187, 5.77778 )
 texture = ExtResource( 7 )
 
 [node name="back_black4" type="Sprite" parent="blocks"]
@@ -232,13 +350,78 @@ scale = Vector2( 2.94859, 2.20741 )
 texture = ExtResource( 7 )
 
 [node name="Player" parent="blocks" instance=ExtResource( 6 )]
-position = Vector2( 313.756, 730.576 )
+position = Vector2( 313.121, 717.935 )
 
 [node name="Camera2D" type="Camera2D" parent="blocks/Player"]
-position = Vector2( -3.63477, 1.88135 )
+position = Vector2( -2.1731, 3.94165 )
 rotation = 3.14159
 current = true
 zoom = Vector2( 3, 3 )
+
+[node name="Jump" type="Node2D" parent="."]
+
+[node name="basPassage" parent="Jump" instance=ExtResource( 3 )]
+position = Vector2( 1907, 1616.18 )
+rotation = 0.780162
+
+[node name="basPassage2" parent="Jump" instance=ExtResource( 3 )]
+position = Vector2( 1435.41, -401.745 )
+rotation = 2.70526
+
+[node name="murPassage" type="Sprite" parent="Jump"]
+position = Vector2( -2084.62, 272 )
+scale = Vector2( 0.995187, 5.77778 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Jump"]
+
+[node name="Sprite" type="Sprite" parent="Jump/StaticBody2D"]
+position = Vector2( -4668.66, 13.4543 )
+rotation = 3.52207
+scale = Vector2( -1, 1 )
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Jump"]
+
+[node name="Sprite" type="Sprite" parent="Jump/StaticBody2D2"]
+position = Vector2( -5368.28, 1130.17 )
+rotation = -0.158825
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Jump"]
+
+[node name="Sprite" type="Sprite" parent="Jump/StaticBody2D3"]
+position = Vector2( -8991.21, -2125.03 )
+rotation = -2.65115
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Jump"]
+position = Vector2( -3075.69, -3888.59 )
+rotation = -0.380482
+
+[node name="Sprite" type="Sprite" parent="Jump/StaticBody2D5"]
+position = Vector2( -8991.21, -2125.03 )
+rotation = -2.65115
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Jump"]
+position = Vector2( -26076.8, -1570.33 )
+rotation = 0.174533
+scale = Vector2( -1, 1 )
+
+[node name="Sprite" type="Sprite" parent="Jump/StaticBody2D6"]
+position = Vector2( -8991.21, -2125.03 )
+rotation = -2.65115
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Jump"]
+position = Vector2( 0, -22.6274 )
+
+[node name="Sprite" type="Sprite" parent="Jump/StaticBody2D4"]
+position = Vector2( -6304.85, -3859.29 )
+rotation = 0.507891
+scale = Vector2( 4.76989, 2.73896 )
+texture = ExtResource( 7 )
 
 [node name="House" parent="." instance=ExtResource( 5 )]
 position = Vector2( 11192.7, -498.61 )
@@ -300,7 +483,403 @@ rotation = -0.42586
 scale = Vector2( 6, 6 )
 texture = ExtResource( 15 )
 
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="1nd/ParallaxBackground"]
+motion_scale = Vector2( 1.5, 1.5 )
+
+[node name="cordes" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer2"]
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer2/cordes"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer2/cordes"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="cordes2" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 8000.52, -2185.33 )
+rotation = 0.579449
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer2/cordes2"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer2/cordes2"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="cordes3" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 4857.11, 1392.07 )
+rotation = -0.563741
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer2/cordes3"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer2/cordes3"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="1nd/ParallaxBackground"]
+position = Vector2( -25562.7, 813.669 )
+motion_scale = Vector2( 1.5, 1.5 )
+
+[node name="cordes" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer4"]
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer4/cordes"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer4/cordes"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="cordes2" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 8000.52, -2185.33 )
+rotation = 0.579449
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer4/cordes2"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer4/cordes2"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="cordes3" type="Node2D" parent="1nd/ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 4857.11, 1392.07 )
+rotation = -0.563741
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="corde_mid" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer4/cordes3"]
+position = Vector2( 2880, -1728 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="corde_mid2" type="Sprite" parent="1nd/ParallaxBackground/ParallaxLayer4/cordes3"]
+position = Vector2( 2368, -1600 )
+rotation = -0.42586
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
 [node name="CameraForDeath" type="Camera2D" parent="."]
 position = Vector2( 5828.51, -5679.71 )
 
 [node name="DeathScreen" parent="CameraForDeath" instance=ExtResource( 9 )]
+
+[node name="wrongway" type="Label" parent="."]
+visible = false
+margin_left = 14299.5
+margin_top = -982.202
+margin_right = 15718.5
+margin_bottom = -859.202
+custom_fonts/font = SubResource( 7 )
+text = "There is nothing here ... maybe you went to the wrong side of the world ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoNotJump" type="Label" parent="."]
+margin_left = 15945.0
+margin_top = -553.0
+margin_right = 16364.0
+margin_bottom = -390.0
+rect_rotation = 15.5
+custom_fonts/font = SubResource( 7 )
+text = "Do not jump !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ground" type="Sprite" parent="."]
+position = Vector2( 768.798, 887.557 )
+rotation = -1.5708
+scale = Vector2( 1.12699, 2.6382 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( -4324.05, -1083.53 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D17" type="StaticBody2D" parent="."]
+position = Vector2( -7372.05, -1523.53 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D17"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D17"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D18" type="StaticBody2D" parent="."]
+position = Vector2( -8930.64, -1528.81 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D18"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D18"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D19" type="StaticBody2D" parent="."]
+position = Vector2( -10473.3, -1548 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D19"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D19"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D20" type="StaticBody2D" parent="."]
+position = Vector2( -12047.4, -1014.63 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D20"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D20"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D21" type="StaticBody2D" parent="."]
+position = Vector2( -12610.9, -1014.67 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D21"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D21"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D22" type="StaticBody2D" parent="."]
+position = Vector2( -13174, -1014.67 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D22"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D22"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="."]
+position = Vector2( -6119.99, -1088.02 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D16"]
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D16"]
+position = Vector2( -5908.02, 414.819 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -1941.81, -623.296 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2( -195.428, -450.141 )
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( -6105.8, -34.6735 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
+position = Vector2( -1061.57, -507.558 )
+polygon = PoolVector2Array( -6193.74, 364.389, -5625.45, 364.389, -5625.45, 499.318, -6188.98, 497.73 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D4"]
+position = Vector2( -6973.54, -92.9938 )
+scale = Vector2( 0.297501, 0.785954 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D5"]
+position = Vector2( -4584.21, 935.696 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D6"]
+position = Vector2( -4584.21, 935.696 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D7"]
+position = Vector2( -12004.3, 949.15 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D11"]
+position = Vector2( -12004.3, 949.15 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D12"]
+position = Vector2( -19595.5, 955.752 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D13"]
+position = Vector2( -17691.9, 955.144 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D14"]
+position = Vector2( -15795.9, 949.15 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D15"]
+position = Vector2( -13901, 948.278 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D8"]
+position = Vector2( -10147.6, 942.423 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D9"]
+position = Vector2( -8324.52, 942.423 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D10"]
+position = Vector2( -6454.37, 935.696 )
+texture = ExtResource( 11 )
+
+[node name="SideWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SideWall"]
+polygon = PoolVector2Array( -19903.2, 889.275, -19917.6, -2455.59, -19510.1, -2501.11, -19000.9, -2580.3, -18537.1, -2568.99, -18107.2, -2467.17, -17586.7, -2523.73, -16659, -2829.2, -16172.5, -2750.01, -15753.9, -2636.87, -14894.1, -2625.56, -14633.8, -2727.38, -14373.6, -2704.75, -13559, -2795.26, -13185.7, -2908.4, -12620, -3202.56, -11816.7, -3145.99, -11092.7, -3145.99, -10628.8, -2987.6, -10097, -2851.83, -9350.34, -2908.4, -8787.41, -2725.27, -7859.41, -2325.27, -6947.41, -2261.27, -6019.41, -1749.27, -5411.41, -1125.27, -4771.41, -709.269, -4675.41, -1029.27, -8083.41, -3861.27, -19699.4, -2757.27, -20291.4, -2581.27, -20291.4, 1002.73 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -20454.6, -836.202 )
+rotation = 1.5708
+scale = Vector2( 1.9822, 1 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -14508.2, -4461.24 )
+rotation = -0.205949
+scale = Vector2( 6.10308, 1 )
+texture = ExtResource( 7 )
+
+[node name="Nothingthere" type="Label" parent="."]
+margin_left = -19815.5
+margin_top = 686.673
+margin_right = -19208.5
+margin_bottom = 828.673
+custom_fonts/font = SubResource( 11 )
+text = "There is nothing there ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nothingthere2" type="Label" parent="."]
+margin_left = -19815.5
+margin_top = 746.134
+margin_right = -19208.5
+margin_bottom = 888.134
+custom_fonts/font = SubResource( 11 )
+text = "You should better check above ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="link" type="Label" parent="."]
+margin_left = -18761.4
+margin_top = -500.643
+margin_right = -18284.4
+margin_bottom = -358.643
+custom_fonts/font = SubResource( 11 )
+text = "You did it ! Thanks for playing !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="link3" type="Label" parent="."]
+margin_left = -4767.0
+margin_top = 176.0
+margin_right = -3892.0
+margin_bottom = 418.0
+custom_fonts/font = SubResource( 11 )
+text = "These platforms are not in this world ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="link2" type="Label" parent="."]
+margin_left = -19973.9
+margin_top = 1650.74
+margin_right = -19402.9
+margin_bottom = 1792.74
+rect_rotation = -38.7
+custom_fonts/font = SubResource( 11 )
+text = "http://sakura.alwaysdata.net/index.html"
+__meta__ = {
+"_edit_use_anchors_": false
+}

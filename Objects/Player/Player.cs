@@ -9,7 +9,7 @@ public class Player : KinematicBody2D
 	[Export] public float Speed = 700;
 	[Export] public float JumpPowerAlive = 1100;
 	[Export] public float JumpPowerGost = 1100;
-	[Export] public float WaitTimeDeath = 15;
+	[Export] public float WaitTimeDeath = 25;
 
 	[Export] public float XCorrection = 0;
 	[Export] public float YCorrection = 100;
@@ -55,7 +55,7 @@ public class Player : KinematicBody2D
 		backgroundWind = GetNode<AudioStreamPlayer>("WindBackground");
 		backgroundMusic.Play();
 		backgroundWind.Play();
-		numberOfDeath = 2;
+		numberOfDeath = 3;
 	}
 
 	public override void _PhysicsProcess(float delta)
@@ -63,6 +63,13 @@ public class Player : KinematicBody2D
 		if (Levier.isLevierEnabled == true)
 		{
 			Test.doorLockedLabel.Text = "";
+			Test.thirdLabel.Text = "You are on the right way ...";
+			Test.thirdLabel2.Text = "";
+			Test.secondLabel.Text = "Go back further ...";
+			Test.secondLabel2.Text = "";
+			Test.firstLabel.Text = "Sometimes, good things are hidden behind the dark things ...";
+			Test.wrongWay.Visible = true;
+			
 		}
 
 		if (backgroundMusic.Playing == false)
@@ -98,6 +105,7 @@ public class Player : KinematicBody2D
 		if (isAlive == false)
 		{
 			alive.Position = ToLocal(bodyPos);
+			
 		}
 		if (isAlive == false && timer.TimeLeft == 0)
 		{

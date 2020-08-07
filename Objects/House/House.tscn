@@ -306,3 +306,8 @@ texture = ExtResource( 7 )
 
 [node name="Levier" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1648.49, -1788.86 )
+
+[node name="Roof" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Roof"]
+polygon = PoolVector2Array( -1994.83, -2048.88, -1484.68, -2557.93, 1585.68, -2556.18, 2102.77, -2043.63, 2008.75, -2044.01, 1563.63, -2508.8, -1462.59, -2506.43, -1906.59, -2048.43 )
